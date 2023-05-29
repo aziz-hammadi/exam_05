@@ -5,19 +5,19 @@
 #include <iostream>
 class Warlock
 {
+private:
     Warlock();
     Warlock(const Warlock &src);
     Warlock & operator=(const Warlock &other);
-
     std::string name;
     std::string title;
 
 public :
-    std::string getName(void) const 
+    std::string const & getName(void) const 
     {
         return name;
     }
-    std::string getTitle(void) const {return title;}
+    std::string const & getTitle(void) const {return title;}
     void setTitle(const std::string &newTitle) {this->title = newTitle;}
     Warlock(const std::string &name, const std::string &title) : name(name), title(title)
     {
