@@ -1,6 +1,6 @@
 #include "ATarget.hpp"
 
-void ATarget::getHitBySpell(const ASpell& spell) const
+void ATarget::getHitBySpell(const ASpell &as) const
 {
-    std::cout<<type<<" has been "<< spell.getEffects()<<"!"<<std::endl;
-};
+    std::cout<<type<<" has been "<<as.getEffects()<<"!"<<std::endl;
+}

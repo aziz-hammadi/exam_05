@@ -1,38 +1,40 @@
 #pragma once
 
-# include <map>
-# include "ASpell.hpp"
-
-class SpellBook 
+#include "SpellBook.hpp"
+#include <map>
+#include <string>
+#include "ASpell.hpp"
+class SpellBook
 {
-	public :
-	SpellBook(){}
-	~SpellBook(){}
+    public :
+    SpellBook(){}
+    ~SpellBook(){}
+    private :
+    SpellBook(const SpellBook &src);
+    SpellBook &operator=(const SpellBook &other);
 
-	private :
-	SpellBook(const SpellBook &src);
-	SpellBook &operator=(const SpellBook &other);
+    public:
+    void learnSpell(ASpell* ls)
+    {
+        b.insert(std::make_pair(ls->getName(), ls));
+    }
+    void forgetSpell(std::string const & fg)
+    {
+        std::map<std::string, ASpell*> ::iterator it = b.find(fg);
+        if (it == b.end())
+            return;
+        else
+            b.erase(it);
+    }
+    ASpell* createSpell(std::string const &cs)
+    {
+        std::map<std::string, ASpell *> ::iterator it = b.find(cs);
+        if (it == b.end())
+            return NULL;
+        else
+            return (*(*it).second).clone();
+    }
 
-	public :
-	void learnSpell(ASpell*spell)
-	{
-		book.insert(std::make_pair(spell->getName(), spell));
-	}
-	void forgetSpell(std::string const &spell)
-	{
-		std::map<std::string, ASpell *>::iterator it(book.find(spell));
-		if (it == book.end())
-			return;
-		else
-			book.erase(it);
-	}
-	ASpell* createSpell(std::string const &spell)
-	{
-		std::map<std::string, ASpell *>::iterator it(book.find(spell));
-		if (it == book.end())
-			return NULL;
-		else
-			return (*(*it).second).clone();
-	}
-	std::map<std::string, ASpell *> book;
+    private : 
+    std::map<std::string, ASpell *> b;
 };

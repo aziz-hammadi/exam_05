@@ -5,7 +5,6 @@
 #include "Dummy.hpp"
 #include "BrickWall.hpp"
 #include "Polymorph.hpp"
-#include "Polymorph.hpp"
 #include "Fireball.hpp"
 
 int main()
