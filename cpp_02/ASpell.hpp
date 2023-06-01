@@ -7,8 +7,8 @@ class ASpell
 {
     public:
     ASpell();//{}
-    ASpell(const ASpell &src); /*{*this=src;}*/
-    ASpell &operator=(const ASpell &other);/*{return *this=other;}*/
+    ASpell(const ASpell &src):name(src.getName()), effects(src.getEffects()){}/*{*this=src;}*/
+    ASpell &operator=(const ASpell &other) {name = other.getName(); effects=other.getEffects(); return *this;}    /*{return *this=other;}*/
     virtual ~ASpell(){}
     protected :
     std::string name;

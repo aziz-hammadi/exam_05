@@ -7,8 +7,8 @@ class ATarget
 {
     public:
     ATarget();//{}
-    ATarget(const ATarget &src);//{*this=src;}
-    ATarget &operator=(const ATarget &other);//{return *this=other;}
+    ATarget(const ATarget &src):type(src.getType()){}//{*this=src;}
+    ATarget &operator=(const ATarget &other) {type = other.getType(); return *this;}//{return *this=other;}
     virtual ~ATarget(){}
     protected :
     std::string type;
