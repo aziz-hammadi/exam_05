@@ -6,9 +6,9 @@ class ATarget;
 class ASpell
 {
     public:
-    ASpell(){}
-    ASpell(const ASpell &src) {*this=src;}
-    ASpell &operator=(const ASpell &other){return *this=other;}
+    ASpell();//{}
+    ASpell(const ASpell &src); /*{*this=src;}*/
+    ASpell &operator=(const ASpell &other);/*{return *this=other;}*/
     virtual ~ASpell(){}
     protected :
     std::string name;

@@ -6,9 +6,9 @@ class ASpell;
 class ATarget
 {
     public:
-    ATarget(){}
-    ATarget(const ATarget &src){*this=src;}
-    ATarget &operator=(const ATarget &other){return *this=other;}
+    ATarget();//{}
+    ATarget(const ATarget &src);//{*this=src;}
+    ATarget &operator=(const ATarget &other);//{return *this=other;}
     virtual ~ATarget(){}
     protected :
     std::string type;
