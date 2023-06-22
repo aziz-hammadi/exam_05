@@ -9,9 +9,9 @@
 #include "SpellBook.hpp"
 class Warlock
 {
-	Warlock();//{}
-	Warlock(const Warlock &src);//{*this=src;}
-	Warlock &operator=(const Warlock &other);//{return *this=other;}
+	Warlock();
+	Warlock(const Warlock &src);
+	Warlock &operator=(const Warlock &other);
 	std::string name;
 	std::string title;
 
@@ -53,10 +53,10 @@ class Warlock
 	{
 		ASpell * tmp = 
 		book.SpellBook::createSpell(ls);
-		tmp->launch(at);
+		if (tmp)
+			tmp->launch(at);
 	}
 private : 
     std::map<std::string, ASpell *> b;
     SpellBook book;
-
 };

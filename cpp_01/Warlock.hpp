@@ -10,9 +10,9 @@
 class Warlock
 {
 	private:
-	Warlock();//{}
-	Warlock(const Warlock &src);//{*this=src;}
-	Warlock &operator=(const Warlock &other);//{return *this=other;}
+	Warlock();
+	Warlock(const Warlock &src);
+	Warlock &operator=(const Warlock &other);
 	std::string name;
 	std::string title;
 

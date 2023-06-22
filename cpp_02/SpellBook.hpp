@@ -16,25 +16,25 @@ class SpellBook
     public:
     void learnSpell(ASpell* ls)
     {
-        b.insert(std::make_pair(ls->getName(), ls));
+        book.insert(std::make_pair(ls->getName(), ls));
     }
     void forgetSpell(std::string const & fg)
     {
-        std::map<std::string, ASpell*> ::iterator it = b.find(fg);
-        if (it == b.end())
+        std::map<std::string, ASpell*> ::iterator it = book.find(fg);
+        if (it == book.end())
             return;
         else
-            b.erase(it);
+            book.erase(it);
     }
     ASpell* createSpell(std::string const &cs)
     {
-        std::map<std::string, ASpell *> ::iterator it = b.find(cs);
-        if (it == b.end())
+        std::map<std::string, ASpell *> ::iterator it = book.find(cs);
+        if (it == book.end())
             return NULL;
         else
             return (*(*it).second).clone();
     }
 
     private : 
-    std::map<std::string, ASpell *> b;
+    std::map<std::string, ASpell *> book;
 };

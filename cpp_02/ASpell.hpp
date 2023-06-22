@@ -2,13 +2,15 @@
 #include <string>
 #include <iostream>
 #include "ATarget.hpp"
+
 class ATarget;
 class ASpell
 {
     public:
-    ASpell();//{}
-    ASpell(const ASpell &src):name(src.getName()), effects(src.getEffects()){}/*{*this=src;}*/
-    ASpell &operator=(const ASpell &other) {name = other.getName(); effects=other.getEffects(); return *this;}    /*{return *this=other;}*/
+    ASpell();
+    ASpell(const ASpell &src):name(src.getName()), effects(src.getEffects()){}
+    //ASpell(const ASpell &src) {this->operator=(src);}
+    ASpell &operator=(const ASpell &other) {name = other.getName(); effects=other.getEffects(); return *this;}
     virtual ~ASpell(){}
     protected :
     std::string name;
